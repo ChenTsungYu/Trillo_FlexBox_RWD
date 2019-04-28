@@ -13,8 +13,10 @@ Grey light 4: #ccc
 Grey dark 1: #333
 Grey dark 2: #777
 Grey dark 3: #999
+CSS 所有的變數都必須儲存在 :root 的 Scope 內
+宣告的方法是在名稱加上前綴 double dash --
 */
-:root{ // 自定義屬性，並設定變數
+:root{ // 自定義屬性，設定全局的變數
   --color-primary: #eb2f64;
   --color-primary-light: #ff3366;
   --color-primary-dark: #ba265d;
@@ -26,9 +28,14 @@ Grey dark 3: #999
   --color-grey-dark-2: #777;
   --color-grey-dark-3: #999;
   --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
-  --shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.06);
+  --shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.1);
   --line: 1px solid var(--color-grey-light-2);
 }
+$bp-largest: 75em;     // 1200px
+$bp-large: 68.75em;    // 1100px
+$bp-medium: 56.25em;   // 900px
+$bp-small: 37.5em;     // 600px
+$bp-smallest: 31.25em; // 500px
 *{
     margin: 0;
     padding: 0;
@@ -42,7 +49,9 @@ html{
     box-sizing: border-box;
     font-size: 62.5%; /*1rem = 10px , 10px / 16px = 62.5%; */
 }
-
+li{
+    list-style: none;
+}
 body{
    font-family: 'Open Sans' , sans-serif;
    font-weight: 400;
@@ -50,6 +59,6 @@ body{
    color: var(--color-grey-dark-2);
    background: linear-gradient(to right bottom, var(--color-primary-light),var(--color-primary-dark)) no-repeat;
    background-size: cover;
-   /*height: 100%;*/
+   background-repeat: no-repeat;
    min-height: 100vh;
 }
